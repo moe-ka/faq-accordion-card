@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+/* ===================== css reset =========================== */
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    /* smooth effect */
+    transition: all 0.5s ease;
+  }
+  
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html, body {
+    height: 100%;
+  }
+  
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+    font-family: 'Kumbh Sans', sans-serif;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  
+  /*
+    9. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+  :root{
+    /* color primary */
+    /* text */
+    --Verydarkdesaturatedblue: hsl(238, 29%, 16%);
+    --Softred: hsl(14, 88%, 65%);
+    /* gradient */
+    --Softviolet: hsl(273, 75%, 66%);
+    --Softblue: hsl(240, 73%, 65%);
+
+    /* neutral */
+    /* text */
+    --Verydarkgrayishblue: hsl(237, 12%, 33%);
+    --Darkgrayishblue: hsl(240, 6%, 50%);
+    /* dividers */
+    --Lightgrayishblue: hsl(240, 5%, 91%);
+  }
+
+  body{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, var(--Softviolet), var(--Softblue) );
+  }
+
+.container{
+    background-image: url(../images/bg-pattern-desktop.svg);
+    background-repeat: no-repeat;
+    background-position: left -38rem top -19rem;
+    
+    /* height: 65%; */
+    /* display:flex; */
+    align-items: center;
+    padding: 5.5rem;
+    background-color: var(--Lightgrayishblue);
+    border-radius: 2rem;
+    /* overflow: hidden; */
+    margin: 1rem;
+    padding-left: 0;
+    align-items: unset;
+    position: relative;
+    padding-top: 3.5rem;
+ }
+
+
+ .left .box{
+    position: absolute;
+    top: 13rem;
+    left: -5.5rem;
+ }
+
+ .left .ilus{
+    position: relative;
+ }
+
+ .left .pattern{
+    position: relative;
+ }
+
+
+.right{
+  padding: 0 4rem;
+  max-height: 19rem;
+}
+
+.right .title{
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.right .list-wrapper{
+  color: var(--Verydarkgrayishblue);
+}
+
+.faq{
+ 
+  border-bottom: 1px solid var(--Darkgrayishblue);
+  transition: all 1s ease;
+}
+
+
+.faq .question-wrapper{
+  /* border-bottom: 1px solid var(--Darkgrayishblue); */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5rem 0;
+  cursor: pointer;
+}
+
+
+.question-wrapper .quest{
+  padding: .5rem 0;
+  font-size: 15px;
+}
+.question-wrapper img{
+  height: 100%;
+}
+
+.question-wrapper:hover{
+  color: var(--Softred);
+}
+
+
+.answer-wrapper{
+  display: none;
+}
+
+.active > .question-wrapper{
+  font-weight: bold;
+}
+
+.active > .answer-wrapper{
+  display: block;
+  margin-bottom: 1rem;
+  animation: activ 1s;
+}
+
+/* animation */
+@keyframes activ {
+  from{
+    opacity: 0;
+  }
+
+  to{
+    opacity: 1;
+  }
+  
+}
+
+/* responsive breakpoint */
+@media (min-width:1023px) {
+  .container{
+    width: 58.75rem;
+  }
+  
+}
+@media (max-width: 1023px) {
+  .container{
+    padding-right: 0;
+    max-width: 58.75rem;
+  }
+}
+
+@media (min-width: 968px) {
+  .container{
+    display: flex;
+  }
+  
+  .right{
+    width: 50%;
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .left{
+  margin-top: 2rem;
+  overflow: hidden;
+  }
+
+  .left .ilus {
+    left: -4.5rem;
+  }
+  
+}
+
+@media (max-width: 968px) {
+  .container{
+    max-width: 28rem;
+    min-height: 38rem;
+    background-size: 60%;
+    background-position: left 6rem top -9rem;
+  }
+  .left{
+    height: 0;
+    
+  }
+  .left .ilus {
+    top: -11rem;
+    width: 60%;
+    margin: auto;
+  }
+  .left .box {
+    position: relative;
+    top: -19rem;
+    left: 5.5rem;
+    width: 22%;
+  }
+
+  .right .title{
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* mobile responsive */
+@media (max-width: 376px) {
+  .container{
+    padding-top: 0;
+    background-position: left 4rem top -7rem;
+
+  }
+  .right{
+    padding: 0 2rem;
+  }
+  .right .title {
+    margin-top: 7rem;
+  }
+  .left .ilus {
+    top: -6rem;
+  }
+  .left .box {
+    top: -12rem;
+    left: 4rem;
+  }
+  
+}
