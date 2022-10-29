@@ -20,13 +20,6 @@
   }
   
   /*
-    3. Allow percentage-based heights in the application
-  */
-  html, body {
-    height: 100%;
-  }
-  
-  /*
     Typographic tweaks!
     4. Add accessible line-height
     5. Improve text rendering
@@ -87,7 +80,6 @@
     display: grid;
     justify-items: center;
     align-items: center;
-    height: 100vh;
     background-image: linear-gradient(to bottom, var(--Softviolet), var(--Softblue) );
   }
 
@@ -95,14 +87,10 @@
     background-image: url(../images/bg-pattern-desktop.svg);
     background-repeat: no-repeat;
     background-position: left -38rem top -19rem;
-    
-    /* height: 65%; */
-    /* display:flex; */
     align-items: center;
     padding: 5.5rem;
     background-color: var(--Lightgrayishblue);
     border-radius: 2rem;
-    /* overflow: hidden; */
     margin: 1rem;
     padding-left: 0;
     align-items: unset;
@@ -148,7 +136,6 @@
 
 
 .faq .question-wrapper{
-  /* border-bottom: 1px solid var(--Darkgrayishblue); */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -198,6 +185,9 @@
 
 /* responsive breakpoint */
 @media (min-width:1023px) {
+  body{
+    height: 100vh;
+  }
   .container{
     width: 58.75rem;
   }
@@ -211,6 +201,7 @@
 }
 
 @media (min-width: 968px) {
+  
   .container{
     display: flex;
   }
@@ -234,11 +225,15 @@
 }
 
 @media (max-width: 968px) {
+  body{
+    padding: 10rem 0
+  }
   .container{
     max-width: 28rem;
     min-height: 38rem;
     background-size: 60%;
     background-position: left 6rem top -9rem;
+    ;
   }
   .left{
     height: 0;
@@ -282,6 +277,13 @@
   .left .box {
     top: -12rem;
     left: 4rem;
+  }
+  
+}
+
+@media (min-width: 800px) {
+  html{
+    height: 100%;
   }
   
 }
