@@ -1,14 +1,16 @@
-const list = document.querySelectorAll('.faq');
 const answers = document.querySelectorAll('.faq');
+var saveIndex = 0;
 
-list.forEach(function (faq, index) {
+answers.forEach(function (faq, index) {
     faq.addEventListener('click', function () {
+        answers[saveIndex].classList.remove('active');
         answers[index].classList.toggle('active');
-        answers.forEach(function(x,p) {
-            if(x !== answers[index]){
-                x.classList.remove('active')
-            }
-        })
-        
-    })
+        saveIndex = index;
+        // answers.forEach(function(x,p) {
+            //     if(x !== answers[index]){
+                //         x.classList.remove('active')
+                //     }
+                // })      
+    })     
 })
+        
